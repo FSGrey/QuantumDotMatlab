@@ -77,6 +77,7 @@ end
 legend(legendname);
 ylabel('Absorbance')
 xlabel('Wavelength (nm)')
+xlim([400 700])
 hold off
 grid on
 
@@ -98,6 +99,7 @@ end
 legend(legendname);
 ylabel('Absorbance')
 xlabel('Wavelength (nm)')
+xlim([400 700])
 hold off
 grid on
 
@@ -125,3 +127,4 @@ plot(WL,sizes, '-s')
 xlabel("Emission Wavelength (nm)")
 ylabel('Spherical Volume (m^3)')
 title('Size of Protocol 1 Quantum Dots')
+%% Testing
