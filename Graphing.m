@@ -101,3 +101,27 @@ xlabel('Wavelength (nm)')
 hold off
 grid on
 
+%% Estimating size
+
+% Constants
+h = 6.63*10^-34;    % Js
+c = 3.00*10^8;      % ms^-1
+me = 1.18*10^-31;   % kg
+mh = 4.10*10^-31;   % kg
+Eg = 2.79*10^-19;   % J
+
+% Emission Wavelength
+for i = 1:9
+    WL(i) = 440+10*(find(FLP1(i,:) == max(FLP1(i,:))));
+end
+lambda = WL.*10^-9;
+% Calculation
+num = ((me^-1)+(mh^-1))*h^2;
+den = 8*(((h*c)./lambda)-Eg);
+r = sqrt(num./den);
+sizes = (4/3)*pi.*r.^3;
+figure(5)
+plot(WL,sizes, '-s')
+xlabel("Emission Wavelength (nm)")
+ylabel('Spherical Volume (m^3)')
+title('Size of Protocol 1 Quantum Dots')
